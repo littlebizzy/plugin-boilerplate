@@ -21,7 +21,7 @@ final class Admin_Notices {
 
 
 
-	// Configuration
+	// Configuration (DO NOT EDIT HERE)
 	// ---------------------------------------------------------------------------------------------------
 
 
@@ -29,45 +29,19 @@ final class Admin_Notices {
 	/**
 	 * Rate Us
 	 */
-	private $days_before_display_rate_us = 3; // 3 days delay
-	private $days_dismissing_rate_us = 270; // 9 months reappear
-	private $rate_us_url = 'https://wordpress.org/support/plugin/[plugin uri]/reviews/#new-post';
-	private $rate_us_message = 'Thanks for using <strong>%plugin%</strong>. Please support our free work by rating this plugin with 5 stars on WordPress.org. <a href="%url%" target="_blank">Click here to rate us.</a>';
+	private $days_before_display_rate_us;
+	private $days_dismissing_rate_us;
+	private $rate_us_url;
+	private $rate_us_message;
 
 
 
 	/**
 	 * Plugin suggestions
 	 */
-	private $days_dismissing_suggestions = 180; // 6 months reappear
-	private $suggestions_message = '%plugin% recommends the following free plugins:';
-	private $suggestions = array(
-		'disable-wc-status-littlebizzy' => array(
-			'name' => 'Disable WooCommerce Status',
-			'desc' => 'Completely disables the WooCommerce Status widget in the WP Admin dashboard to greatly improve backend performance on high traffic WooCommerce shops.',
-			'filename' => 'disable-woocommerce-status.php',
-		),
-		'disable-wc-styles-littlebizzy' => array(
-			'name' => 'Disable WooCommerce Styles',
-			'desc' => 'Completely disables all of the CSS stylesheets that are loaded by WooCommerce in order that styling can be better managed by a single style.css file.',
-			'filename' => 'disable-woocommerce-styles.php',
-		),
-		'delete-expired-transients-littlebizzy' => array(
-			'name' => 'Delete Expired Transients',
-			'desc' => 'Deletes all expired transients upon activation and on a daily basis thereafter via WP Cron to maintain a cleaner database and improve performance.',
-			'filename' => 'delete-expired-transients.php',
-		),
-		'disable-jq-migrate-littlebizzy' => array(
-			'name' => 'Disable jQuery Migrate',
-			'desc' => 'Easily prevent the jQuery migrate script that is included with WordPress core from being loaded to slim down source code (for advanced users only).',
-			'filename' => 'disable-jquery-migrate.php',
-		),
-		'remove-query-strings-littlebizzy' => array(
-			'name' => 'Remove Query Strings',
-			'desc' => 'Removes all query strings from static resources meaning that proxy servers and beyond can better cache your site content (plus, better SEO scores).',
-			'filename' => 'remove-query-strings.php',
-		),
-	);
+	private $days_dismissing_suggestions;
+	private $suggestions_message;
+	private $suggestions;
 
 
 
@@ -143,7 +117,7 @@ final class Admin_Notices {
 		register_uninstall_hook($this->plugin_file, array(__CLASS__, 'uninstall'));
 
 		// Check notices
-		if (is_admin()) {
+		if (is_admin() && $this->config()) {
 			$this->check_timestamps();
 			$this->check_suggestions();
 			$this->check_rate_us();
@@ -594,6 +568,76 @@ final class Admin_Notices {
 </script>
 
 	<?php }
+
+
+
+	// Configuration loader
+	// ---------------------------------------------------------------------------------------------------
+
+
+
+	/**
+	 * Load configuration array
+	 */
+	private function config() {
+
+		// Load configuration attempt
+		$conf = @include dirname(__FILE__).'/admin-notices-config.php'
+		if (empty($conf) || !is_array($conf))
+			return false;
+
+		// Expected vars
+		$expected = [
+
+			// Rate Us
+			'days_before_display_rate_us',
+			'days_dismissing_rate_us',
+			'rate_us_url',
+			'rate_us_message',
+
+			// Plugin suggestions
+			'days_dismissing_suggestions',
+			'suggestions_message',
+			'suggestions',
+		];
+
+		// Enum expected
+		foreach ($expected as $key) {
+
+			// Check var
+			if (!isset($conf[$key]))
+				return false;
+
+			// Item value
+			$value = $conf[$key];
+
+			// Check numeric values
+			if (in_array($key, ['days_before_display_rate_us', 'days_dismissing_rate_us', 'days_dismissing_suggestions'])) {
+
+				// Cast to integer and check
+				$value = (int) $value;
+				if (empty($value))
+					return false;
+
+			// Suggestions array
+			} elseif ('suggestions' == $key) {
+
+				// Check non-empty array
+				if (empty($value) || !is_array($value))
+					return false;
+
+			// String values
+			} elseif (empty($value)) {
+				return false;
+			}
+
+			// Set property
+			$this->{$key} = $value;
+		}
+
+		// Done
+		return true;
+	}
 
 
 
