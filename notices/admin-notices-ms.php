@@ -26,9 +26,8 @@ final class Admin_Notices_MS {
 
 	/**
 	 * Custom message
-	 * Mark %plugin% reflects the plugin name
 	 */
-	private $message = 'Sorry! For performance reasons, WordPress Multisite is not supported by <strong>%plugin%</strong>. Achieve top speed and security with a <a href="https://www.littlebizzy.com/hosting?utm_source=multisite" target="_blank">dedicated Nginx VPS</a> for every site.';
+	private $message
 
 
 
@@ -104,13 +103,50 @@ final class Admin_Notices_MS {
 	 */
 	public function adminNoticesMS() {
 
+		// Check notice message
+		if (!$this->config())
+			return;
+
+		// Collect plugin data
 		$plugin_data = get_plugin_data($this->plugin_file);
 
+		// Display notice
 		?><div class="notice notice-error">
 
 			<p><?php echo str_replace('%plugin%', $plugin_data['Name'], $this->message); ?></p>
 
 		</div><?php
+	}
+
+
+
+	// Configuration
+	// ---------------------------------------------------------------------------------------------------
+
+
+
+	/**
+	 * Load configuration array
+	 */
+	private function config() {
+
+		// Load configuration configuration file
+		$config = @include dirname(dirname(__FILE__)).'/config.php'
+		if (empty($config) || !is_array($config) ||	empty($config['admin-notices-ms']) || !is_array($config['admin-notices-ms']))
+			return false;
+
+		// Just the admin-notices-ms part
+		$config = $config['admin-notices'];
+
+		// Check message value
+		if (empty($config['message']))
+			return false;
+
+		// Set property
+		$this->message = $config['message'];
+
+		// Done
+		return true;
 	}
 
 

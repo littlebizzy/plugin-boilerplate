@@ -571,7 +571,7 @@ final class Admin_Notices {
 
 
 
-	// Configuration loader
+	// Configuration
 	// ---------------------------------------------------------------------------------------------------
 
 
@@ -581,10 +581,13 @@ final class Admin_Notices {
 	 */
 	private function config() {
 
-		// Load configuration attempt
-		$conf = @include dirname(__FILE__).'/admin-notices-config.php'
-		if (empty($conf) || !is_array($conf))
+		// Load configuration configuration file
+		$config = @include dirname(dirname(__FILE__)).'/config.php'
+		if (empty($config) || !is_array($config) ||	empty($config['admin-notices']) || !is_array($config['admin-notices']))
 			return false;
+
+		// Just the admin-notices part
+		$config = $config['admin-notices'];
 
 		// Expected vars
 		$expected = [
@@ -605,11 +608,11 @@ final class Admin_Notices {
 		foreach ($expected as $key) {
 
 			// Check var
-			if (!isset($conf[$key]))
+			if (!isset($config[$key]))
 				return false;
 
 			// Item value
-			$value = $conf[$key];
+			$value = $config[$key];
 
 			// Check numeric values
 			if (in_array($key, ['days_before_display_rate_us', 'days_dismissing_rate_us', 'days_dismissing_suggestions'])) {
