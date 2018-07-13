@@ -2,7 +2,8 @@
 
 /**
  * DO NOT MODIFY THE CLASS CODE!
- * Just change the [PluginNamespace] value below */
+ * Just change the [PluginNamespace] value below
+ * (also if needed you can change the `message` property value)
  */
 
 // Subpackage namespace
