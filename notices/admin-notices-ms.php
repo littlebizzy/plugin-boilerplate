@@ -27,7 +27,7 @@ final class Admin_Notices_MS {
 	/**
 	 * Custom message
 	 */
-	private $message
+	private $message;
 
 
 
@@ -131,12 +131,12 @@ final class Admin_Notices_MS {
 	private function config() {
 
 		// Load configuration configuration file
-		$config = @include dirname(dirname(__FILE__)).'/config.php'
+		$config = @include dirname(dirname(__FILE__)).'/config.php';
 		if (empty($config) || !is_array($config) ||	empty($config['admin-notices-ms']) || !is_array($config['admin-notices-ms']))
 			return false;
 
 		// Just the admin-notices-ms part
-		$config = $config['admin-notices'];
+		$config = $config['admin-notices-ms'];
 
 		// Check message value
 		if (empty($config['message']))
