@@ -2,7 +2,8 @@
 
 /**
  * DO NOT MODIFY THE CLASS CODE!
- * Just change the two [PluginNamespace] values below */
+ * Just change the two [PluginNamespace] values below
+ * Define the settings in the ../config.php file
  */
 
 // Subpackage namespace

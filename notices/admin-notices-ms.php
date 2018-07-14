@@ -3,7 +3,7 @@
 /**
  * DO NOT MODIFY THE CLASS CODE!
  * Just change the [PluginNamespace] value below
- * (also if needed you can change the `message` property value)
+ * Define the settings in the ../config.php file
  */
 
 // Subpackage namespace
