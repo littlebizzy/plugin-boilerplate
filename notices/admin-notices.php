@@ -10,7 +10,7 @@
 namespace LittleBizzy\[PluginNamespace]\Notices;
 
 // Aliased namespaces
-use LittleBizzy\[PluginNamespace] as Plugin;
+use LittleBizzy\[PluginNamespace] as PluginRoot;
 
 /**
  * Admin Notices class
@@ -109,7 +109,7 @@ final class Admin_Notices {
 	private function __construct($plugin_file = null) {
 
 		// Prefix from plugin constants
-		$this->prefix = Plugin\PREFIX.'_an';
+		$this->prefix = PluginRoot\PREFIX.'_an';
 
 		// Main plugin file
 		$this->plugin_file = isset($plugin_file)? $plugin_file : __FILE__;
