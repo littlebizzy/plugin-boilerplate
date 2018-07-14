@@ -8,7 +8,6 @@ Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Prefix: [6 chars prefix]
 */
 
 // Plugin namespace
@@ -23,7 +22,7 @@ if (!function_exists('add_action'))
 
 // Plugin constants
 const FILE = __FILE__;
-const PREFIX = '[prefix]';
+const PREFIX = '[6 chars prefix]';
 const VERSION = '1.0.0';
 
 // Loader
