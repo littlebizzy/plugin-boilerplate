@@ -583,7 +583,7 @@ final class Admin_Notices {
 	private function config() {
 
 		// Load configuration configuration file
-		$config = @include dirname(dirname(__FILE__)).'/config.php'
+		$config = @include dirname(dirname(__FILE__)).'/config.php';
 		if (empty($config) || !is_array($config) ||	empty($config['admin-notices']) || !is_array($config['admin-notices']))
 			return false;
 
