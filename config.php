@@ -62,7 +62,7 @@ return [
 
 
 
-	['admin-notices-ms'] => [
+	'admin-notices-ms' => [
 
 		/**
 		 * Custom message
