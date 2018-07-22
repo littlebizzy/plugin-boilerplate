@@ -8,6 +8,8 @@ Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+WC requires at least: 3.3
+WC tested up to: 3.4
 */
 
 // Plugin namespace
