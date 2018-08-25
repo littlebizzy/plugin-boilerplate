@@ -19,7 +19,7 @@ final class FHTTPS_Admin_Notices {
 	 * Rate Us
 	 */
 	private $days_before_display_rate_us = 2; // 2 days delay
-	private $days_dismissing_rate_us = 270; // 9 months reappear
+	private $days_dismissing_rate_us = 180; // 6 months reappear
 	private $rate_us_url = 'https://wordpress.org/support/plugin/plugin-name-littlebizzy/reviews/?rate=5#new-post';
 	private $rate_us_url2 = 'https://www.facebook.com/groups/littlebizzy/';
 	private $rate_us_url3 = 'https://www.littlebizzy.com/services/speed-boost?utm_source=wpnotice';
