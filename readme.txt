@@ -49,6 +49,16 @@ The following defined constants are supported by this plugin:
 
 * `define('DISABLE_NAG_NOTICES', true);`
 
+Why no quotes? Adding quotes evaluates the 'false' or "false" values as a string, and the boolean evaluation of any string returns true (except for empty strings).
+
+It is a little bit weird but PHP works this way because it does not require strong data typing. There are special operatos (the triple equality ===) to ensure the right data type, but adds complexity and it is used normally where you are not sure of the input variable data type.
+
+It is true that there are constants that expects both boolean and string values, but the important thing here is that the false value does not contain quotes, e.g.:
+
+define('DISABLE_CART_FRAGMENTS', true);
+define('DISABLE_CART_FRAGMENTS', false);
+define('DISABLE_CART_FRAGMENTS', '123,456,789');
+
 #### Plugin Features ####
 
 * Premium Version: [**SEO Genius**](https://www.littlebizzy.com/plugins/seo-genius)
