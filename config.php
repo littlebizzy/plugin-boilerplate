@@ -71,7 +71,7 @@ return [
 		 * Custom message
 		 * The %plugin% mark reflects the plugin name
 		 */
-		'message' => 'Sorry! For performance reasons, WordPress Multisite is not supported by <strong>%plugin%</strong>. Achieve top speed and security with a <a href="https://www.littlebizzy.com/hosting?utm_source=multisite" target="_blank">dedicated Nginx VPS</a> for every site.',
+		'message' => 'For performance reasons, <strong>%plugin%</strong> does not support Multisite. For best results, always place your WordPress website on a <a href="https://www.littlebizzy.com/hosting?utm_source=multisite" target="_blank">dedicated Nginx server</a>.',
 
 	], // End of admin-notices-ms
 
