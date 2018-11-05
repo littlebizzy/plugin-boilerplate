@@ -7,10 +7,10 @@
  */
 
 // Subpackage namespace
-namespace LittleBizzy\[PluginNamespace]\Notices;
+namespace LittleBizzy\PluginNamespace\Notices;
 
 // Aliased namespaces
-use LittleBizzy\[PluginNamespace] as PluginRoot;
+use LittleBizzy\PluginNamespace as PluginRoot;
 
 /**
  * Admin Notices class
