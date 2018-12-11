@@ -64,4 +64,17 @@ class Factory {
 
 
 
+	/**
+	 * Generates a context object
+	 */
+	protected function context() {
+		static $context;
+		if (!isset($context)) {
+			$context = new Context;
+		}
+		return $context;
+	}
+
+
+
 }
