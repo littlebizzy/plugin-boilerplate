@@ -18,15 +18,15 @@ namespace LittleBizzy\PluginNamespace;
 // Aliased namespaces
 use LittleBizzy\PluginNamespace\Notices;
 
-// Block direct calls
-if (!function_exists('add_action')) {
-	die;
-}
-
 // Plugin constants
 const FILE = __FILE__;
 const PREFIX = '[6 chars prefix]';
 const VERSION = '1.0.0';
+
+// Block direct calls
+if (!function_exists('add_action')) {
+	die;
+}
 
 // Loader
 require_once dirname(FILE).'/helpers/loader.php';
