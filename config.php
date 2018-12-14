@@ -5,9 +5,44 @@ return [
 
 
 	/**
+	 * Boot check PHP configuration
+	 */
+	'boot-check-php' => [
+
+		/**
+		 * Enables the PHP validation
+		 */
+		'enabled' => true,
+
+		/**
+		 * PHP minimum version
+		 * Uses version_compare function: http://php.net/manual/en/function.version-compare.php
+		 */
+		'version-required' => '5.6.0',
+
+		/**
+		 * PHP error message
+		 *
+		 * Used to trigger a user error: It is limited to 1024 bytes in length. Any additional characters beyond 1024 bytes will be truncated
+		 * (from PHP documentation: http://php.net/manual/en/function.trigger-error.php)
+		 *
+		 * Supported variables: %php_current_version% and %php_version_required%
+		 */
+		'version-message' => 'Sorry, your current PHP version (%php_current_version%) is not supported. This plugin requires at least PHP %php_version_required% version.',
+
+	], // End of boot check PHP
+
+
+
+	/**
 	 * Admin notices configuration
 	 */
 	'admin-notices' => [
+
+		/**
+		 * Enables the Admin Notices execution
+		 */
+		'enabled' => true,
 
 		/**
 		 * Rate Us
@@ -66,6 +101,16 @@ return [
 
 
 	'admin-notices-ms' => [
+
+		/**
+		 * Enables the Admin Notices execution
+		 */
+		'enabled' => true,
+
+		/**
+		 * Disables plugin execution on detected multisited installs
+		 */
+		'abort-on-multisite' => false,
 
 		/**
 		 * Custom message
