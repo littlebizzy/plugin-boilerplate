@@ -42,7 +42,7 @@ return [
 		/**
 		 * Enables the Admin Notices execution
 		 */
-		'enabled' => true,
+		'enabled' => false,
 
 		/**
 		 * Rate Us
