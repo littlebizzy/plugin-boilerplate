@@ -28,7 +28,7 @@ return [
 		 *
 		 * Supported variables: %php_current_version% and %php_version_required%
 		 */
-		'version-message' => 'Sorry, your current PHP version (%php_current_version%) is not supported. This plugin requires at least PHP %php_version_required% version.',
+		'version-message' => '<strong>%plugin%</strong> does not support your outdated PHP version (%php_current_version%). Please update your PHP to at least version 7.0 or consider <a href="https://www.littlebizzy.com/hosting?utm_source=phpcheck" target="_blank">better web hosting</a>.',
 
 	], // End of boot check PHP
 
