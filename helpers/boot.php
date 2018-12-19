@@ -69,6 +69,9 @@ final class Boot {
 			// Loader
 			require_once $directory.'/helpers/loader.php';
 
+			// Admin notices for PHP
+			Notices\Admin_Notices_PHP::instance($file);
+
 			// Admin Notices
 			if (!empty($config['admin-notices']) && !empty($config['admin-notices']['enabled'])) {
 				Notices\Admin_Notices::instance($file);
