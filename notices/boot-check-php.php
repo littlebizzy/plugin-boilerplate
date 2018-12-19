@@ -30,7 +30,8 @@ $ltbConfig = @include $ltbParentDir.'/config.php';
 unset($ltbParentDir);
 
 // Check config file
-if (empty($ltbConfig) || !is_array($ltbConfig) || empty($ltbConfig['boot-check-php']) || empty($ltbConfig['boot-check-php']['enabled']) ||
+if (empty($ltbConfig) || !is_array($ltbConfig) || empty($ltbConfig['boot-check-php']) ||
+	empty($ltbConfig['boot-check-php']['enabled']) || empty($ltbConfig['boot-check-php']['prevent-activation']) ||
 	empty($ltbConfig['boot-check-php']['version-required']) || empty($ltbConfig['boot-check-php']['version-message'])) {
 	unset($ltbConfig);
 	return;
@@ -48,13 +49,22 @@ error_log($_SERVER['REQUEST_URI']);
 error_log(print_r($_REQUEST, true));
 error_log('boot-check-php end '.time()); */
 
+// Plugin name
+$pluginDir = defined('WP_PLUGIN_DIR')? WP_PLUGIN_DIR : dirname(dirname(dirname(__FILE__)));
+$pluginData = function_exists('get_plugin_data')? get_plugin_data($pluginDir.'/'.$_REQUEST['plugin']) : null;
+$pluginName = (!empty($pluginData) && is_array($pluginData) && !empty($pluginData['Name']))? $pluginData['Name'] : basename(dirname($_REQUEST['plugin']));
+
 // Prepare message
 $ltbMessage = $ltbConfig['boot-check-php']['version-message'];
+$ltbMessage = str_replace('%plugin%', $pluginName, $ltbMessage);
 $ltbMessage = str_replace('%php_current_version%', PHP_VERSION, $ltbMessage);
 $ltbMessage = str_replace('%php_version_required%', $ltbConfig['boot-check-php']['version-required'], $ltbMessage);
 
 // Unset unused
 unset($ltbConfig);
+unset($pluginDir);
+unset($pluginData);
+unset($pluginName);
 
 // Force PHP error
 trigger_error($ltbMessage, E_USER_ERROR);
