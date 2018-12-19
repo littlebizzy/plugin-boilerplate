@@ -29,9 +29,9 @@ final class Admin_Notices_PHP {
 	/**
 	 * Config variables
 	 */
-	private $current_version;
-	private $version_required;
-	private $version_message;
+	private $currentVersion;
+	private $versionRequired;
+	private $versionMessage;
 
 
 
@@ -104,7 +104,7 @@ final class Admin_Notices_PHP {
 	public function notices() {
 
 		// Current message
-		$message = $this->version_message;
+		$message = $this->versionMessage;
 
 		// Replace plugin name
 		$pluginData = get_plugin_data($this->pluginFile);
@@ -112,8 +112,8 @@ final class Admin_Notices_PHP {
 		$message = str_replace('%plugin%', $pluginName, $message);
 
 		// Replace PHP versions
-		$message = str_replace('%php_current_version%', $this->current_version, $message);
-		$message = str_replace('%php_version_required%', $this->version_required, $message);
+		$message = str_replace('%php_current_version%', $this->$currentVersion, $message);
+		$message = str_replace('%php_version_required%', $this->versionRequired, $message);
 
 		// Error display
 		?><div class="notice notice-error"><p><?php echo $message; ?></p></div><?php
@@ -139,9 +139,9 @@ final class Admin_Notices_PHP {
 		}
 
 		// Copy variables
-		$this->current_version 	= PHP_VERSION;
-		$this->version_required = $config['boot-check-php']['version-required'];
-		$this->version_message 	= $config['boot-check-php']['version-message'];
+		$this->currentVersion 	= PHP_VERSION;
+		$this->versionRequired 	= $config['boot-check-php']['version-required'];
+		$this->versionMessage 	= $config['boot-check-php']['version-message'];
 
 		// Outdated
 		return true;
