@@ -105,6 +105,9 @@ return [
 
 
 
+	/**
+	 * Admin Notices configuration for WordPress MultiSite
+	 */
 	'admin-notices-ms' => [
 
 		/**
