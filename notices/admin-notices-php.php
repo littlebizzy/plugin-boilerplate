@@ -92,6 +92,14 @@ final class Admin_Notices_PHP {
 			return;
 		}
 
+		// Check previous action loaded
+		if (did_action('ltbpbp_admin_notices_php')) {
+			return;
+		}
+
+		// Set PBP admin notices PHP action
+		do_action('ltbpbp_admin_notices_php');
+
 		// Show the notices
 		add_action('admin_notices', [$this, 'notices']);
 	}
