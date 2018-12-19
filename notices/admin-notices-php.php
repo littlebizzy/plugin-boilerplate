@@ -112,7 +112,7 @@ final class Admin_Notices_PHP {
 		$message = str_replace('%plugin%', $pluginName, $message);
 
 		// Replace PHP versions
-		$message = str_replace('%php_current_version%', $this->$currentVersion, $message);
+		$message = str_replace('%php_current_version%', $this->currentVersion, $message);
 		$message = str_replace('%php_version_required%', $this->versionRequired, $message);
 
 		// Error display
