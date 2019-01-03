@@ -4,7 +4,7 @@ Contributors: littlebizzy
 Donate link: https://www.patreon.com/littlebizzy
 Tags: five, keywords, separated, by, commas
 Requires at least: 4.4
-Tested up to: 4.9
+Tested up to: 5.0
 Requires PHP: 7.2
 Multisite support: No
 Stable tag: 1.2.3
