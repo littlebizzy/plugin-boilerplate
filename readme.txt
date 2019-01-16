@@ -68,7 +68,7 @@ define('DISABLE_CART_FRAGMENTS', '123,456,789');
   * WP Options Table: Yes
   * Other Tables: No
   * Creates New Tables: No
-* Database Queries: Backend Only 
+* Database Queries: Backend Only
   * Query Types: Options API
 * Multisite Support: No
 * Uninstalls Data: Yes
@@ -116,6 +116,12 @@ There is a settings page where you can exclude certain types of query strings.
 Please avoid leaving negative reviews in order to get a feature implemented. Instead, we kindly ask that you post your feedback on the wordpress.org support forums by tagging this plugin in your post. If needed, you may also contact our homepage.
 
 == Changelog ==
+
+= 1.1.1 =
+
+* Moved context method to Plugin class and removed from Factory class
+* New enabled method in Plugin class for quick plugin constant checks
+* Minor structure changes in Context class
 
 = 1.1.0 =
 * major changes/new features
