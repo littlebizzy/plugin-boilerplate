@@ -21,7 +21,7 @@ namespace LittleBizzy\PluginNamespace;
 const FILE = __FILE__;
 const PREFIX = '[6 chars prefix]';
 const VERSION = '1.0.0';
-const REPO = '[github-repo-slug]';
+const REPO = '[github-account/repo-slug]';
 
 // Boot
 require_once dirname(FILE).'/helpers/boot.php';
