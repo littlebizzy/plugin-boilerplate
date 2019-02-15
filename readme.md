@@ -2,13 +2,14 @@
 
 PHP boilerplate used in all WordPress plugins released by LittleBizzy that supports automatic updates for both public and private GitHub repos.
 
-* [Plugin Homepage (LittleBizzy.com)](https://www.littlebizzy.com/plugins/plugin-boilerplate)
-* [Free Facebook Group](https://www.facebook.com/groups/littlebizzy/)
+* [Plugin Homepage](https://www.littlebizzy.com/plugins/plugin-boilerplate)
+* [**Become A LittleBizzy.com Member Today!**](https://www.littlebizzy.com/members)
 
 ### Defined Constants
 
     /* Plugin Meta */
     define('DISABLE_NAG_NOTICES', true);
+    define('AUTOMATIC_UPDATE_PLUGINS', false);
 
 ### Compatibility
 
