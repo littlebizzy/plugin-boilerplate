@@ -8,8 +8,8 @@ PHP boilerplate used in all WordPress plugins released by LittleBizzy that suppo
 ### Defined Constants
 
     /* Plugin Meta */
-    define('DISABLE_NAG_NOTICES', true);
     define('AUTOMATIC_UPDATE_PLUGINS', false);
+    define('DISABLE_NAG_NOTICES', true);
 
 ### Compatibility
 
