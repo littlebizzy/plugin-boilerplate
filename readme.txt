@@ -5,7 +5,7 @@ Donate link: https://www.patreon.com/littlebizzy
 Tags: five, keywords, separated, by, commas
 Requires at least: 4.4
 Tested up to: 5.0
-Requires PHP: 7.2
+Requires PHP: 7.1
 Multisite support: No
 Stable tag: 1.2.3
 License: GPLv3

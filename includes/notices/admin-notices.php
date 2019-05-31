@@ -7,7 +7,7 @@
  */
 
 // Subpackage namespace
-namespace LittleBizzy\PluginNamespace\Notices;
+namespace LittleBizzy\PluginNamespace\Includes\Notices;
 
 // Aliased namespaces
 use LittleBizzy\PluginNamespace as PluginRoot;

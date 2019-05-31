@@ -7,7 +7,7 @@
  */
 
 // Subpackage namespace
-namespace LittleBizzy\PluginNamespace\Notices;
+namespace LittleBizzy\PluginNamespace\Includes\Notices;
 
 /**
  * Admin Notices MultiSite class

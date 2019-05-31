@@ -1,0 +1,10 @@
+input[type=text], textarea {
+    width: 100%;
+    max-width: 500px;
+}
+textarea {
+	height: 100px;
+}
+.acsms-nav {
+	margin: 1.5em 0 1em;
+}
