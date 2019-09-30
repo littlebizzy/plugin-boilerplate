@@ -9,7 +9,7 @@ Author URI: https://www.littlebizzy.com
 Text Domain: the-plugin-name
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-PBP Version: 1.3.0
+PBP Version: 1.4.0
 WC requires at least: 3.3
 WC tested up to: 3.5
 Prefix: littlebizzy
@@ -19,7 +19,9 @@ Prefix: littlebizzy
 namespace LittleBizzy\PluginNamespace;
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) exit;
+if( ! defined( 'ABSPATH' ) ){
+	exit;
+}
 
 // Plugin constants
 const FILE = __FILE__;
@@ -58,18 +60,9 @@ Class Plugin {
 
 	public function load_includes() {
 		// Include files
-		require_once $this->includes_dir . 'notices/admin-notices-ms.php';
-		require_once $this->includes_dir . 'notices/admin-notices.php';
+		require_once $this->includes_dir . 'classes/PluginView.php';
+		require_once $this->includes_dir . 'helpers.php';
 		require_once $this->includes_dir . 'settings-page.php';
-
-		// Admin Notices
-		Includes\Notices\Admin_Notices::instance(__FILE__);
-
-		/**
-		 * Admin Notices Multisite check
-		 * Uncomment "return;" to disable this plugin on Multisite installs
-		 */
-		if (false !== Includes\Notices\Admin_Notices_MS::instance(__FILE__)) { /* return; */ }
 
 		// Run another instances
 		Includes\Settings_Page::get_instance();
@@ -84,7 +77,7 @@ Class Plugin {
 	}
 
 	private function __construct() {
-		/* private for singleton purpose */ 
+		/* private for singleton purpose */
 	}
 }
 

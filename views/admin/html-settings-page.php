@@ -1,7 +1,7 @@
 <div class="wrap">
    	<form method="POST" action="<?php echo admin_url('admin.php'); ?>">
    		<nav class="nav-tab-wrapper acsms-nav">
-			<a href="<?php echo admin_url(sprintf("admin.php?page=%s-settings", $this->prefix)) ?>" class="nav-tab nav-tab-active">General</a>
+			<a href="<?php echo admin_url(sprintf("admin.php?page=%s-settings", $prefix)) ?>" class="nav-tab nav-tab-active">General</a>
 			<a href="#" class="nav-tab"><?php _e("Advanced Settings", 'the-plugin-name') ?></a>
 		</nav>
 
@@ -15,10 +15,10 @@
 		<div class="acsms-tab-description"><?php _e("General settings for this LittleBizzy plugin", 'the-plugin-name') ?></div>
 
        	<!-- key for admin_action -->
-       	<input type="hidden" name="action" value="<?php printf("%s_save_settings", $this->prefix) ?>" />
+       	<input type="hidden" name="action" value="<?php printf("%s_save_settings", $prefix) ?>" />
 
        	<!-- nonce -->
-       	<?php wp_nonce_field('LH{qtd50iILN^w!T1t@H'); ?>
+       	<?php wp_nonce_field( 'save-plugin-settings' ); ?>
 
        	<!-- your form -->
        	<table class="form-table">
