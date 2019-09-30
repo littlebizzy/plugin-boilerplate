@@ -18,6 +18,11 @@ Class Settings_Page {
 	private $prefix = PluginRoot\PREFIX;
 	private $plugin_file = PluginRoot\FILE;
 
+	private function __construct() {
+		//enqueue scripts
+		add_action( 'admin_enqueue_scripts', array( $this, 'load_scripts' ) );
+	}
+
 	public static function get_instance() {
 		if(! isset(self::$instance)) {
 			self::$instance = new self;
@@ -31,11 +36,13 @@ Class Settings_Page {
 		// admin menu
 		add_action('admin_menu', array($this, 'admin_menu'));
 
-		// load additional css for this settings page
-		wp_enqueue_style('settings-page-css', plugins_url('assets/admin/css/settings-page.css', $this->plugin_file));
-
 		// save settings
 		add_action(sprintf("admin_action_%s_save_settings", $this->prefix), array($this, 'save_settings'));
+	}
+
+	public function load_scripts() {
+		// load additional css for this settings page
+		wp_enqueue_style('settings-page', plugins_url('assets/admin/css/settings-page.css', $this->plugin_file));
 	}
 
 	public function admin_menu() {
@@ -87,9 +94,5 @@ Class Settings_Page {
 		);
 
 		return get_option($option_name, $default);
-	}
-
-	private function __construct() {
-		/* private for singleton purpose */
 	}
 }
