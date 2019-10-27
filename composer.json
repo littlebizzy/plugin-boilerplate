@@ -1,0 +1,16 @@
+{
+    "name": "littlebizzy/plugin-boilerplate",
+    "type": "wordpress-plugin-boilerplate",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.littlebizzy.com/plugins/plugin-boilerplate",
+    "description": "PHP boilerplate used in all WordPress plugins released by LittleBizzy that supports automatic updates for both public and private GitHub repos.",
+    "keywords": ["wordpress","plugin","boilerplate"],
+    "support": {
+        "issues": "https://github.com/littlebizzy/plugin-boilerplate/issues",
+        "forum": "https://www.littlebizzy.com/members"
+    },
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0"
+    }
+}
