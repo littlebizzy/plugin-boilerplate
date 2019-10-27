@@ -1,0 +1,32 @@
+## Node Files ##
+node_modules
+bower_components
+release
+vendor
+.idea
+
+## Log Files ##
+*.log
+ 
+## Project Files ##
+dist
+
+## Editor Files ##
+*.esproj
+*.tmproj
+*.tmproject
+tmtags
+.*.sw[a-z]
+*.un~
+Session.vim
+*.swp
+
+## Mac OSX Files ##
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+## Windows ##
+Thumbs.db
+Desktop.ini
