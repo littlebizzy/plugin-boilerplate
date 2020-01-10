@@ -8,7 +8,7 @@ PHP boilerplate used in all WordPress plugins released by LittleBizzy that suppo
 
 ### Defined Constants
 
-    /* Plugin Boilerplate Functions v1.2.1 */
+    /** Plugin Boilerplate Functions v1.2.1 */
     define('AUTOMATIC_UPDATE_PLUGINS', false); // default = false
     define('DISABLE_NAG_NOTICES', false); // default = false
 
