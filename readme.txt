@@ -114,25 +114,3 @@ There is a settings page where you can exclude certain types of query strings.
 = I have a suggestion, how can I let you know? =
 
 Please avoid leaving negative reviews in order to get a feature implemented. Instead, we kindly ask that you post your feedback on the wordpress.org support forums by tagging this plugin in your post. If needed, you may also contact our homepage.
-
-== Changelog ==
-
-= 1.1.1 =
-
-* Moved context method to Plugin class and removed from Factory class
-* New enabled method in Plugin class for quick plugin constant checks
-* Minor structure changes in Context class
-
-= 1.1.0 =
-* major changes/new features
-* tested with PHP 7.1
-* tested with PHP 7.2
-
-= 1.0.1 =
-* minor tweaks/patches
-
-= 1.0.0 =
-* initial release
-* tested with PHP 7.0
-* uses PHP namespaces
-* object-oriented codebase
